@@ -4,7 +4,7 @@ close all
 
 % Pedindo os valores necessários
 while true
-    massa = input('digite o valor da massa da bolinha: ');
+    massa = input('digite o valor da massa da particula: ');
     raio = input('digite o valor do raio; ');
     Uk = input('digite o valor do coeficênte de atrito cinético; ');
     incremento = input('digite o valor do incremento do angulo em graus (obrigatoriamente menor de 90); ');
@@ -42,7 +42,7 @@ while teta <=((pi/2));
 
     % Criando um break para caso a bola pare dentro do tubo
     if E_pot - Delta_E_Pot - T_F_atrito < 0
-        fprintf('\na bolinha parou antes do final do tubo\n');
+        fprintf('\na particula parou antes do final do tubo\n');
         parada = 1;
         break
     end
@@ -60,7 +60,7 @@ end
 
 % Determinando o trabalho da força de atrito e parando o codigo caso a bolinha pare dentro do tubo
 if parada == 1
-    disp(fprintf('\na bolinha não terá velocidade de saida pois parou dentro do tubo. \no trabalho da força de atrito é %.4f [J] ', E_pot)) ;
+    disp(fprintf('\na particula não terá velocidade de saida pois parou dentro do tubo. \no trabalho da força de atrito é %.4f [J] ', E_pot)) ;
 else
     % Identificando o tempo de queda livre a uma altura de 2m
     tempo = sqrt(2*2/g);
@@ -72,7 +72,7 @@ else
     v_impacto = g * tempo ;
 
     % Reportando os valores desejados
-    disp(sprintf('\nAo sair do tubo com um coeficiente de atrito cinético igual a %.4f \na bolinha irá sair com uma velocidade de %.4f [m/s] \na uma distância %.4f [m] \no trabalho da força de atrito corresponde a %.4f [J] \ncom velocidade de impacto de %.4f [m/s] .', Uk, v, Dist_final, T_F_atrito, v_impacto)) ;
+    disp(sprintf('\nAo sair do tubo com um coeficiente de atrito cinético igual a %.4f \na particula irá sair com uma velocidade de %.4f [m/s] \na uma distância %.4f [m] \no trabalho da força de atrito corresponde a %.4f [J] \ncom velocidade de impacto de %.4f [m/s] .', Uk, v, Dist_final, T_F_atrito, v_impacto)) ;
 
     % --- Plotagem final dos gráficos ---
     figure('Name', 'Resultados da Simulação');
@@ -80,7 +80,7 @@ else
     % Gráfico de Velocidade
     subplot(2, 1, 1);
     plot(angulos_plot, velocidades_plot, 'b-', 'DisplayName', 'Velocidade Instantânea');
-    title('Velocidade da Bolinha vs. Ângulo');
+    title('Velocidade da partícula vs. Ângulo');
     xlabel('Ângulo (graus)');
     ylabel('Velocidade (m/s)');
     grid on;
@@ -95,3 +95,4 @@ else
     grid on;
     legend('Location', 'southeast');
 end
+
